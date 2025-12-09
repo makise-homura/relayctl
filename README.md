@@ -12,7 +12,7 @@ relayctl.py [-h] [-b IPADDR] [-p PORT] [-t SEC] [-v] [N{+|-} ...]
 
 ##### Positional arguments:
 
-* `N{+|-}` Turn ON (`+`) of OFF (`-`) the desired relay (starting from 0, `all` for all relays)
+* `N{+|-}` Turn ON (`+`) of OFF (`-`) the desired relay (starting from 1, `all` for all relays)
 
 ##### Options:
 
@@ -26,8 +26,8 @@ relayctl.py [-h] [-b IPADDR] [-p PORT] [-t SEC] [-v] [N{+|-} ...]
 
 * `relayctl.py 2+`: Turn on relay 2.
 * `relayctl.py 4- 6+`: Turn off relay 4, and then turn on relay 6.
-* `relayctl.py all- 0+ 7+`: Turn off all relays, and then turn on relays 0 and 7 (the ones at the edges of the 8-relay board).
-* `relayctl.py -b 192.168.1.110 0+`: Turn on relay 0 (while local IP address is configured as `192.168.1.110`, and the relay board is configured to connect to it).
+* `relayctl.py all- 1+ 8+`: Turn off all relays, and then turn on relays 1 and 8 (the ones at the edges of the 8-relay board).
+* `relayctl.py -b 192.168.1.110 1+`: Turn on relay 1 (while local IP address is configured as `192.168.1.110`, and the relay board is configured to connect to it).
 * `relayctl.py -t 30 all-`: Wait 30 seconds for relay board to connect, and then turn off all relays.
 
 ### relayfind
