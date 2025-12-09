@@ -6,9 +6,9 @@ parser = argparse.ArgumentParser(description='Controls the QYF-O491V2 ethernet r
 relays = list(range(8)) + ['all']
 commands = list(map(lambda x: str(x)+'+', relays)) + list(map(lambda x: str(x)+'-', relays))
 parser.add_argument('command', nargs='*', choices=commands, metavar='N{+|-}', help='turn ON (+) of OFF (-) the desired relay (starting from 0, \'all\' for all relays)')
-parser.add_argument('-b', '--bind', nargs=1, default='192.168.1.100', type=str, metavar='IPADDR', help='IP address of the local machine to bind to (default: %(default)s)')
-parser.add_argument('-p', '--port', nargs=1, default=8800, type=int, metavar='PORT', help='TCP port to bind to (default: %(default)s)')
-parser.add_argument('-t', '--timeout', nargs=1, default=10, type=int, metavar='SEC', help='seconds to wait for relay board to connect (default: %(default)s)')
+parser.add_argument('-b', '--bind', default='192.168.1.100', type=str, metavar='IPADDR', help='IP address of the local machine to bind to (default: %(default)s)')
+parser.add_argument('-p', '--port', default=8800, type=int, metavar='PORT', help='TCP port to bind to (default: %(default)s)')
+parser.add_argument('-t', '--timeout', default=10, type=int, metavar='SEC', help='seconds to wait for relay board to connect (default: %(default)s)')
 parser.add_argument('-v', '--verbose', action='store_true', help='be verbose: tell about what is being done')
 args = parser.parse_args()
 if args.verbose: print('Commands to execute:', args.command)
