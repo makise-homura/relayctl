@@ -7,7 +7,7 @@ Controls the QYF-O491V2 ethernet relay board
 #### Usage
 
 ```
-relayctl.py [-h] [-b IPADDR] [-p PORT] [-t SEC] [-v] [N{+|-} ...]
+relayctl.py [-h] [-c] [-i IPADDR] [-p PORT] [-t SEC] [-v] [N{+|-} ...]
 ```
 
 ##### Positional arguments:
@@ -17,9 +17,10 @@ relayctl.py [-h] [-b IPADDR] [-p PORT] [-t SEC] [-v] [N{+|-} ...]
 ##### Options:
 
 * `-h`, `--help`: Show help message and exit
-* `-b`, `--bind IPADDR`: IP address of the local machine to bind to (default: `192.168.1.100`)
-* `-p`, `--port PORT`: TCP port to bind to (default: `8800`)
-* `-t`, `--timeout SEC`: Seconds to wait for relay board to connect (default: `10`)
+* `-c`, `--client`: Use TCP client mode instead of server
+* `-i`, `--ip IPADDR`: IP address of the local machine to bind to in server mode, or connect to in client mode (default: `192.168.1.100` in server mode, `192.168.1.200` in client mode)
+* `-p`, `--port PORT`: TCP port to bind to in server mode, or connect to in client mode (default: `8800` in server mode, `2000` in client mode)
+* `-t`, `--timeout SEC`: Seconds to wait for relay board to connect or respond (default: `10`)
 * `-v`, `--verbose`: Be verbose: tell about what is being done
 
 ##### Example:
@@ -27,8 +28,10 @@ relayctl.py [-h] [-b IPADDR] [-p PORT] [-t SEC] [-v] [N{+|-} ...]
 * `relayctl.py 2+`: Turn on relay 2.
 * `relayctl.py 4- 6+`: Turn off relay 4, and then turn on relay 6.
 * `relayctl.py all- 1+ 8+`: Turn off all relays, and then turn on relays 1 and 8 (the ones at the edges of the 8-relay board).
-* `relayctl.py -b 192.168.1.110 1+`: Turn on relay 1 (while local IP address is configured as `192.168.1.110`, and the relay board is configured to connect to it).
+* `relayctl.py -i 192.168.1.110 1+`: Turn on relay 1 (while local IP address is configured as `192.168.1.110`, and the relay board is configured to connect to it).
 * `relayctl.py -t 30 all-`: Wait 30 seconds for relay board to connect, and then turn off all relays.
+* `relayctl.py -c 2+`: Turn on relay 2 (while the relay board is configured to accept connections).
+* `relayctl.py -c -i 192.168.1.201 -p 2100 2+`: The same, but the relay board is accepting connections at `192.168.1.201:2100`.
 
 ### relayfind
 
