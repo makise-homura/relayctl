@@ -15,7 +15,7 @@ relayctl.py [-h] [-b IPADDR] [-p PORT] [-t SEC] [-v] [N{+|-} ...]
 ##### Options:
 
 *  `-h`, `--help`: Show help message and exit
-*  `-b IPADDR``, `--bind IPADDR`: IP address of the local machine to bind to (default: `192.168.1.100`)
+*  `-b IPADDR`, `--bind IPADDR`: IP address of the local machine to bind to (default: `192.168.1.100`)
 *  `-p PORT`, `--port PORT`: TCP port to bind to (default: `8800`)
 *  `-t SEC`, `--timeout SEC`: Seconds to wait for relay board to connect (default: `10`)
 *  `-v`, `--verbose`: Be verbose: tell about what is being done
